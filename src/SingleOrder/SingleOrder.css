@@ -1,0 +1,35 @@
+.receipt-container-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+  padding: 40px !important;
+}
+.Invoice-body {
+  width: 500px;
+}
+.Receipt {
+  width: 500px;
+  height: 600px;
+}
+@media screen and (max-width: 768px) {
+  .Receipt {
+    width: 100%;
+    height: auto;
+  }
+  .receipt-container-body {
+    padding: 40px !important;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 560px) {
+  .Invoice-body {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .Invoice-body {
+    width: 350px;
+  }
+}

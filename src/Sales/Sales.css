@@ -1,0 +1,100 @@
+.NewOrder {
+  background-color: rgba(0, 204, 255, 0.183);
+  padding: 30px 80px;
+}
+.PeningOrders {
+  background-color: rgba(208, 0, 255, 0.164);
+  padding: 30px 80px;
+}
+.DeliveredOrder {
+  background-color: rgba(255, 102, 0, 0.155);
+  padding: 30px 80px;
+}
+.NumberPending {
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(208, 0, 255);
+}
+.NumberNew {
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(0, 204, 255);
+}
+.NumberDeliverdOrder {
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(255, 102, 0);
+}
+.OrderBody-container {
+  overflow: scroll;
+  scrollbar-width: none;
+}
+table {
+  width: 100%;
+  padding: 20px !important;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  padding: 10px !important;
+}
+.delivery-status {
+  background-color: green;
+  color: white !important;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.pending-button {
+  background-color: orange;
+  color: white !important;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.category-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  .container-category-items {
+    font-weight: bold;
+    background-color: rgba(1, 9, 63, 0.372);
+    padding: 3px;
+    width: 80px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    transition: 250ms;
+    cursor: pointer;
+  }
+  .container-category-items-Active {
+    font-weight: bold;
+    background-color: rgba(1, 9, 63, 0.833);
+    padding: 3px;
+    width: 80px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    transition: 250ms;
+    cursor: pointer;
+  }
+  .container-category-items:hover {
+    background-color: rgba(1, 9, 63, 0.833) !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  table {
+    width: 500px;
+  }
+  .delivery-status {
+    font-size: 10px !important;
+  }
+  .pending-button {
+    font-size: 12px !important;
+  }
+}

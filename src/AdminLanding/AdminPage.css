@@ -1,0 +1,56 @@
+.body {
+  background-color: #1c1c1c10;
+  position: relative;
+  top: 0;
+  height: 100vh;
+}
+.iconBodyBlue {
+  background-color: rgba(0, 115, 255, 0.132);
+  opacity: 10px !important;
+  width: 80px;
+  height: 75px;
+}
+.iconBodyOrange {
+  background-color: rgba(255, 166, 0, 0.103);
+  opacity: 10px !important;
+  width: 80px;
+  height: 75px;
+}
+.iconBodygreen {
+  background-color: rgba(0, 128, 19, 0.084);
+  opacity: 10px !important;
+  width: 80px;
+  height: 75px;
+}
+.iconBodydanger {
+  background-color: rgba(128, 0, 0, 0.073);
+  opacity: 10px !important;
+  width: 80px;
+  height: 75px;
+}
+.statusPending {
+  background-color: rgba(255, 166, 0, 0.922);
+  width: 100px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: aliceblue;
+  text-transform: capitalize;
+}
+tr td {
+  font-weight: 600;
+}
+.table-container {
+  overflow-x: scroll !important;
+  scrollbar-width: none;
+}
+
+table {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  table {
+    width: 700px;
+  }
+}

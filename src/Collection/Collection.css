@@ -1,0 +1,72 @@
+.collection-header {
+  font-weight: 800;
+  font-size: 28.5px;
+  font-family: "Montserrat", sans-serif;
+}
+input {
+  outline: none;
+  border: none;
+}
+table {
+  width: 100%;
+}
+.collection-body {
+  padding: 10px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+.collection-body table tr th {
+  font-weight: bold;
+  color: #787878 !important;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  height: 60px;
+  padding: 10px !important;
+}
+.Instock {
+  background-color: rgba(0, 128, 0, 0.929);
+  width: 30%;
+  padding: 5px;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+}
+.outOfStock {
+  background-color: rgba(159, 0, 0, 0.929);
+  width: 50%;
+  padding: 5px;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+}
+.imageView {
+  display: flex;
+}
+.imageHead {
+  display: flex;
+}
+@media screen and (max-width: 768px) {
+  table {
+    width: 400px;
+  }
+  .Instock {
+    width: 100%;
+  }
+  .outOfStock {
+    width: 100%;
+  }
+  .imageView {
+    display: none;
+  }
+  .imageHead {
+    display: none;
+  }
+}

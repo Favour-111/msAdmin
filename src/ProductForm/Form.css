@@ -1,0 +1,29 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-container {
+  margin-top: 50px;
+  background-color: white;
+  padding: 20px;
+  width: 400px;
+}
+label {
+  font-weight: 500;
+  margin-top: 10px;
+  font-family: sans-serif, "Montserrat";
+  color: #1c1c1c89;
+}
+.image-uploader-div {
+  padding: 20px;
+  text-align: center;
+  border: 1px dotted #1c1c1c89;
+  width: 100%;
+  border-radius: 10px;
+}
+@media screen and (max-width: 446px) {
+  .form-container {
+    width: 370px;
+  }
+}

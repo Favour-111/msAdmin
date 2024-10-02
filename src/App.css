@@ -1,0 +1,13 @@
+.action-icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  transition: 250ms;
+  cursor: pointer;
+}
+.action-icon:hover {
+  background-color: rgba(0, 0, 0, 0.153);
+}
