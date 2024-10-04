@@ -41,19 +41,6 @@ const Vendors = [
   },
 
   {
-    Image: image4,
-    name: "savours",
-    about: "THE REAL SAVORS IS BACK !",
-    href: "/savour",
-    location: "campus-mart",
-  },
-  {
-    Image: image5,
-    name: "lavishh cakes",
-    href: "/lavishh",
-    location: "special",
-  },
-  {
     Image: image6,
     name: "Chow on Deck",
     href: "/chickenRepublic",

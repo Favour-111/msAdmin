@@ -10,7 +10,9 @@ import { RiDeleteBack2Line } from "react-icons/ri";
 import { FaTrash } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Collection = () => {
+  const navigate = useNavigate();
   //collection state
   const [collection, SetCollection] = useState([]);
   //loader State
@@ -75,6 +77,7 @@ const Collection = () => {
   }, []);
   //delete product function
   const handleDelete = async (id) => {
+    SetLoader(true);
     try {
       const response = await axios.delete(
         `https://msback.onrender.com/delete/${id}`
@@ -88,6 +91,8 @@ const Collection = () => {
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      SetLoader(false);
     }
   };
   return (
@@ -245,6 +250,13 @@ const Collection = () => {
                         <div
                           style={{
                             cursor: "pointer",
+                            backgroundColor: "#1c1c1c10",
+                            height: 40,
+                            width: 40,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: 100,
                           }}
                           onClick={() => {
                             handleDelete(item._id);
@@ -253,11 +265,20 @@ const Collection = () => {
                           <FaTrash color="red" />
                         </div>
                         <div
+                          onClick={() => navigate(`/formEdit/${item._id}`)}
+                          // to={`/formEdit/${item._id}`}
                           style={{
                             cursor: "pointer",
+                            backgroundColor: "#1c1c1c10",
+                            height: 40,
+                            width: 40,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: 100,
                           }}
                         >
-                          <Link to={`/formEdit/${item._id}`}>
+                          <Link>
                             <FaEye color="blue" />
                           </Link>
                         </div>

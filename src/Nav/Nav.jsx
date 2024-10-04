@@ -166,6 +166,14 @@ const Nav = () => {
                   Note
                 </li>
               </Link>
+              <button
+                className="btn btn-danger m-3"
+                onClick={() => {
+                  window.location.replace("http://localhost:3000/");
+                }}
+              >
+                Logout
+              </button>
             </ul>
           </div>
         </div>
