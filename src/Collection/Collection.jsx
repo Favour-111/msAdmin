@@ -39,7 +39,9 @@ const Collection = () => {
   const getALlProduct = async () => {
     try {
       SetLoader(true);
-      const response = await axios.get(`http://localhost:5000/getalProducts`);
+      const response = await axios.get(
+        `https://msback.onrender.com/getalProducts`
+      );
       console.log(response);
       if (response) {
         SetCollection(response.data.response);
