@@ -87,11 +87,7 @@ const SingleOrder = () => {
       ) : (
         <div className="receipt-container-body">
           <div>
-            <img
-              src={`https://msback.onrender.com/uploads/${singleOrder.image}`}
-              className="Receipt"
-              alt="name"
-            />
+            <img src={singleOrder.image} className="Receipt" alt="name" />
           </div>
           <div className="Invoice-body shadow p-3">
             <div className="d-flex align-items-center justify-content-between">

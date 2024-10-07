@@ -11,6 +11,7 @@ import { FaTrash } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 const Collection = () => {
   const navigate = useNavigate();
   //collection state
@@ -38,9 +39,7 @@ const Collection = () => {
   const getALlProduct = async () => {
     try {
       SetLoader(true);
-      const response = await axios.get(
-        `https://msback.onrender.com/getalProducts`
-      );
+      const response = await axios.get(`http://localhost:5000/getalProducts`);
       console.log(response);
       if (response) {
         SetCollection(response.data.response);
@@ -94,6 +93,39 @@ const Collection = () => {
     } finally {
       SetLoader(false);
     }
+  };
+  const toggleSwal = () => {
+    swal({
+      title: "Are you sure you want to delete all products?",
+      text: "Once deleted, you will not be able to recover products!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        SetLoader(true);
+        try {
+          const deleteOrder = await axios.delete(
+            "https://msback.onrender.com/products/delete"
+          );
+          if (deleteOrder) {
+            SetCollection([]); // Clear the order list
+            swal("Poof! All products have been deleted!", {
+              icon: "success",
+            });
+          }
+        } catch (error) {
+          swal("Failed to delete products", {
+            icon: "error",
+          });
+          console.error("Error deleting all products:", error);
+        } finally {
+          SetLoader(false);
+        }
+      } else {
+        swal("products deletion canceled!");
+      }
+    });
   };
   return (
     <div>
@@ -168,6 +200,7 @@ const Collection = () => {
               {currentTime}
             </div>
           </div>
+
           {/* search function */}
           <div className="d-flex gap-2 mt-3 ">
             <div className="search-container rounded bg-light shadow-sm p-2 w-100">
@@ -189,7 +222,11 @@ const Collection = () => {
             </Link>
           </div>
         </div>
-
+        <div>
+          <button className="m-3 btn btn-danger" onClick={toggleSwal}>
+            Delete All
+          </button>
+        </div>
         {/* collectionBody */}
         {loading ? (
           <div className="d-flex justify-content-center mt-5">
@@ -226,11 +263,7 @@ const Collection = () => {
                   return (
                     <tr className="rounded bg-light  h-100">
                       <td className="imageView">
-                        <img
-                          src={`https://msback.onrender.com/uploads/${item.image}`}
-                          alt={item.name}
-                          height={50}
-                        />
+                        <img src={item.image} alt={item.name} height={50} />
                       </td>
                       <td>{item.Pname}</td>
                       <td>{item.vendor}</td>
