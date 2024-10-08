@@ -169,7 +169,7 @@ const Nav = () => {
               <button
                 className="btn btn-danger m-3"
                 onClick={() => {
-                  window.location.replace("http://localhost:3000/");
+                  window.location.replace("https://mealsection.com/");
                 }}
               >
                 Logout

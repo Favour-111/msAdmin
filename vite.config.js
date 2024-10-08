@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3000", // Proxy to the server
+        target: "https://msadmin.onrender.com/", // Proxy to the server
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
