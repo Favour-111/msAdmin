@@ -6,12 +6,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // Assuming your client is running on port 3000
       "/api": {
-        target: "http://localhost:3000", // The URL of the React client
+        target: "http://localhost:3000", // Proxy to the server
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
+  base: "/", // Ensure this is part of the main config object
 });

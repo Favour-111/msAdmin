@@ -208,7 +208,7 @@ const EditForm = () => {
                       <div className="image-uploader-div">
                         <img
                           width={50}
-                          src={`https://msback.onrender.com/uploads/${form.image}`} // Make sure the correct URL is used
+                          src={form.image} // Make sure the correct URL is used
                           alt="product"
                         />
                       </div>

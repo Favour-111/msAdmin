@@ -1,0 +1,4 @@
+redirects:
+  - source: /<*> # Catch all routes
+    destination: /index.html
+    status: 200
