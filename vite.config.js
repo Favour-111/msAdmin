@@ -4,14 +4,20 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: "/", // Ensure correct base path for production
+
+  // Only relevant for development mode
   server: {
     proxy: {
       "/api": {
-        target: "https://msadmin.onrender.com/", // Proxy to the server
+        target: "https://msadmin.onrender.com/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
-  base: "/", // Ensure this is part of the main config object
+
+  build: {
+    outDir: "dist", // Ensure output directory is properly set
+  },
 });

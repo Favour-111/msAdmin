@@ -1,4 +1,10 @@
-redirects:
-  - source: /<*> # Catch all routes
-    destination: /index.html
-    status: 200
+services:
+  - type: web
+    name: vite-app
+    env: static
+    staticPublishPath: dist
+    buildCommand: npm run build
+    redirects:
+      - source: "/*"
+        destination: /index.html
+        status: 200
