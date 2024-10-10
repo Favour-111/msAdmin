@@ -41,13 +41,6 @@ const Vendors = [
   },
 
   {
-    Image: image6,
-    name: "Chow on Deck",
-    href: "/chickenRepublic",
-    location: "special",
-  },
-
-  {
     Image: image7,
     name: "Ffo",
     href: "/FFO",

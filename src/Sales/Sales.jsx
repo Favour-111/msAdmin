@@ -90,7 +90,7 @@ const Sales = () => {
 
   //sending whatAppMessages
 
-  const phoneNumber = "+2348069989705"; // Replace with the actual number
+  const phoneNumber = "+2347013234960"; // Replace with the actual number
 
   const shareBtn = (
     id,
@@ -102,7 +102,7 @@ const Sales = () => {
     Number,
     Address,
     cartItems,
-    packPrice
+    WhatsApp
   ) => {
     let itemsMessage = cartItems
       .map((item, index) => `${item.productName} - Qty: ${item.quantity}`)
@@ -114,14 +114,13 @@ const Sales = () => {
   _______________________
   NUMBER: ${Number} 
   _______________________
+  WHATSAPP: ${WhatsApp} 
+  _______________________
   ADDRESS ${Address} 
   _______________________
   DATE: ${date}
   _______________________
   GENDER: ${gender} 
-  _______________________
-  *PACK:*
-  SELECTED PACK: ${packPrice};
   _______________________
   *ORDERS:*
    ${itemsMessage}
@@ -418,7 +417,7 @@ const Sales = () => {
                               item.phoneNumber,
                               item.Address,
                               item.cartItems,
-                              item.PackPrice
+                              item.WhatsApp
                             )
                           }
                           className="action-icon"

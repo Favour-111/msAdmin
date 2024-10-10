@@ -132,6 +132,7 @@ const Form = () => {
                       <option value="Protein">Protein</option>
                       <option value="Carbohydrate">Carbohydrate</option>
                       <option value="junks">junk</option>
+                      <option value="pack">pack</option>
                     </select>
                   </div>
                   <div>

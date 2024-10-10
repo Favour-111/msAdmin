@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./SingleOrder.css";
 import { IoShareSocialOutline } from "react-icons/io5";
-
+import { CiPhone } from "react-icons/ci";
+import { FaWhatsapp } from "react-icons/fa";
 const SingleOrder = () => {
   const { id } = useParams();
   const [singleOrder, setsingleOrder] = useState({});
@@ -29,7 +30,7 @@ const SingleOrder = () => {
 
   //sending whatAppMessages
 
-  const phoneNumber = "+2348069989705"; // Replace with the actual number
+  const phoneNumber = "+2347013234960"; // Replace with the actual number
 
   const shareBtn = (
     id,
@@ -41,7 +42,7 @@ const SingleOrder = () => {
     Number,
     Address,
     cartItems,
-    packPrice
+    WhatsApp
   ) => {
     let itemsMessage = cartItems
       .map((item, index) => `${item.productName} - Qty: ${item.quantity}`)
@@ -53,15 +54,15 @@ const SingleOrder = () => {
   _______________________
   NUMBER: ${Number} 
   _______________________
+  WHATSAPP: ${WhatsApp} 
+  _______________________
   ADDRESS ${Address} 
   _______________________
   DATE: ${date}
   _______________________
   GENDER: ${gender} 
   _______________________
-  *PACK:*
-  SELECTED PACK: ${packPrice};
-  _______________________
+
   *ORDERS:*
    ${itemsMessage}
    _______________________
@@ -107,7 +108,14 @@ const SingleOrder = () => {
                 <br />
                 Gender: {singleOrder.gender}
               </div>
-              <div>{singleOrder.phoneNumber}</div>
+              <div>
+                <div>
+                  <CiPhone /> : {singleOrder.phoneNumber}
+                </div>
+                <div>
+                  <FaWhatsapp /> :{singleOrder.WhatsApp}
+                </div>
+              </div>
             </div>
             <div className="mt-3">
               <p className="opacity-75 fw-bold">
@@ -141,7 +149,6 @@ const SingleOrder = () => {
             </div>
             <div className="d-flex align-items-center justify-content-between">
               <div className="fw-bold mx-3">Vendor: {singleOrder.Vendor}</div>
-              <div className="fw-bold mx-3">Pack: {singleOrder.PackPrice}</div>
             </div>
             <div className="my-3 d-flex align-item-end justify-content-end">
               <div className="fw-bold fs-5">
@@ -160,7 +167,7 @@ const SingleOrder = () => {
                   singleOrder.phoneNumber,
                   singleOrder.Address,
                   singleOrder.cartItems,
-                  singleOrder.PackPrice
+                  singleOrder.WhatsApp
                 )
               }
               className="action-icon"
