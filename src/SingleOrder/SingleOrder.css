@@ -13,6 +13,12 @@
   width: 500px;
   height: 600px;
 }
+.store {
+  font-family: arial;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+}
 @media screen and (max-width: 768px) {
   .Receipt {
     width: 100%;

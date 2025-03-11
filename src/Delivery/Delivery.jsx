@@ -45,6 +45,7 @@ const Delivery = () => {
       setLoader(false);
     }
   };
+  console.log(deliveryFee);
 
   // useEffect hook to fetch data once component mounts
   useEffect(() => {

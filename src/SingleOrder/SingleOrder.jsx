@@ -5,10 +5,14 @@ import "./SingleOrder.css";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { CiPhone } from "react-icons/ci";
 import { FaWhatsapp } from "react-icons/fa";
+
 const SingleOrder = () => {
   const { id } = useParams();
   const [singleOrder, setsingleOrder] = useState({});
   const [loader, setLoader] = useState(false);
+
+  console.log(singleOrder);
+
   const getSingleProduct = async () => {
     setLoader(true);
     try {
@@ -28,8 +32,7 @@ const SingleOrder = () => {
     getSingleProduct();
   }, [id]);
 
-  //sending whatAppMessages
-
+  //sending WhatsApp messages
   const phoneNumber = "+2347013234960"; // Replace with the actual number
 
   const shareBtn = (
@@ -42,13 +45,19 @@ const SingleOrder = () => {
     Number,
     Address,
     cartItems,
-    WhatsApp
+    WhatsApp,
+    Note
   ) => {
     let itemsMessage = cartItems
-      .map((item, index) => `${item.productName} - Qty: ${item.quantity}`)
+      .map(
+        (item, index) =>
+          `${item.productName} - ${item.quantity} - ${item.FoodPrice}`
+      )
       .join("\n");
     let message = `
     *${vendor.toUpperCase()}* 
+  _______________________
+  DELIVERY TYPE: ${Address === "" ? "Pick up At Store" : "Home delivery"}
   _______________________
   NAME: ${name}
   _______________________
@@ -56,7 +65,7 @@ const SingleOrder = () => {
   _______________________
   WHATSAPP: ${WhatsApp} 
   _______________________
-  ADDRESS ${Address} 
+  ADDRESS: ${Address} 
   _______________________
   DATE: ${date}
   _______________________
@@ -66,9 +75,12 @@ const SingleOrder = () => {
   *ORDERS:*
    ${itemsMessage}
    _______________________
+
+  *NOTE:*
+   ${Note}
+   _______________________
   *TOTAL: ${totalPrice}* 
- 
-    
+  
     Thank you for choosing Mealsection!
     `;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
@@ -91,6 +103,11 @@ const SingleOrder = () => {
             <img src={singleOrder.image} className="Receipt" alt="name" />
           </div>
           <div className="Invoice-body shadow p-3">
+            {singleOrder.Address === "" ? (
+              <p className="store">Pick Up at Store</p>
+            ) : (
+              <p className="store">Home delivery</p>
+            )}
             <div className="d-flex align-items-center justify-content-between">
               <div>
                 <div style={{ fontWeight: "bold", fontSize: 20 }}>
@@ -99,7 +116,7 @@ const SingleOrder = () => {
                 <div>{singleOrder.Date}</div>
               </div>
               <button className="btn btn-primary">
-                Total: {singleOrder.totalPrice}
+                Total: {singleOrder.totalPrice} {/* Display calculated total */}
               </button>
             </div>
             <div className="d-flex align-items-center justify-content-between mt-4">
@@ -113,7 +130,7 @@ const SingleOrder = () => {
                   <CiPhone /> : {singleOrder.phoneNumber}
                 </div>
                 <div>
-                  <FaWhatsapp /> :{singleOrder.WhatsApp}
+                  <FaWhatsapp /> : {singleOrder.WhatsApp}
                 </div>
               </div>
             </div>
@@ -123,12 +140,19 @@ const SingleOrder = () => {
                 {singleOrder.Address}
               </p>
             </div>
+            <div className="mt-3">
+              <p className="opacity-75 fw-bold">
+                <span className="color-dark opacity-100 mx-2">Note:</span>
+                {singleOrder.Note}
+              </p>
+            </div>
             <div>
               <table className="table">
                 <thead>
                   <tr>
                     <th scope="col">Product Name</th>
                     <th scope="col">Qty</th>
+                    <th scope="col">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -137,11 +161,12 @@ const SingleOrder = () => {
                       <tr key={index}>
                         <td>{item.productName}</td>
                         <td>{item.quantity}</td>
+                        <td>{item.FoodPrice}</td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="2">No items in the cart</td>
+                      <td colSpan="3">No items in the cart</td>
                     </tr>
                   )}
                 </tbody>
@@ -162,12 +187,13 @@ const SingleOrder = () => {
                   singleOrder.name,
                   singleOrder.Vendor,
                   singleOrder.Date,
-                  singleOrder.totalPrice,
+                  singleOrder.totalPrice, // Using the calculated total price
                   singleOrder.gender,
                   singleOrder.phoneNumber,
                   singleOrder.Address,
                   singleOrder.cartItems,
-                  singleOrder.WhatsApp
+                  singleOrder.WhatsApp,
+                  singleOrder.Note
                 )
               }
               className="action-icon"

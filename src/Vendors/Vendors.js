@@ -16,6 +16,8 @@ import image15 from "../images/IMG-20240115-WA0008.jpg";
 import image16 from "../images/IMG-20240115-WA0002.jpg";
 import image17 from "../images/IMG-20240115-WA0009.jpg";
 import image18 from "../images/IMG-20240115-WA0003.jpg";
+import image19 from "../images/meatPie.jpg";
+import image20 from "../images/5920321395303237341.jpg";
 
 const Vendors = [
   {
@@ -34,11 +36,26 @@ const Vendors = [
     location: "campus-mart",
   },
   {
-    Image: image3,
-    name: "EDS",
-    href: "/EDS",
+    Image: image19,
+    name: "Grace MeatPie",
+    about: "best restaurant in the school? You tell us",
+    href: "/Grace MeatPie",
     location: "campus-mart",
   },
+  {
+    Image: image20,
+    name: "Culture Crave By Suppy",
+    about: "best restaurant in the school? You tell us",
+    href: "/Culture Crave By Suppy",
+    location: "Back Of College",
+  },
+
+  // {
+  //   Image: image3,
+  //   name: "EDS",
+  //   href: "/EDS",
+  //   location: "campus-mart",
+  // },
 
   {
     Image: image7,
@@ -52,7 +69,7 @@ const Vendors = [
     Image: image8,
     name: "the huts",
     about: "This is the real sensation 🔥",
-    href: "#",
+    href: "/thehuts",
     location: "campus-mart",
   },
 
@@ -81,7 +98,7 @@ const Vendors = [
   {
     Image:
       "https://urbanblisslife.com/wp-content/uploads/2023/01/Jolibee-Spaghetti-FEATURE.jpg",
-    name: "annie's eatery",
+    name: "annie’s eatery",
     about: "Even the Italiano's don’t make spaghetti this good",
     href: "/annies",
     location: "campus-mart",
@@ -110,7 +127,7 @@ const Vendors = [
 
   {
     Image: image13,
-    name: "dupsey ",
+    name: "dupsey",
     about: "Best noodles in the school??",
     href: "/dupseys",
     location: "Back Of College",
@@ -118,18 +135,18 @@ const Vendors = [
 
   {
     Image: image14,
-    name: "waakye ",
+    name: "waakye",
     about: "mummy Waakye does it best",
     href: "/waakye",
     location: "Back Of College",
   },
 
-  {
-    Image: image15,
-    name: "OLA'S snacks",
-    href: "/ola",
-    location: "Back Of College",
-  },
+  // {
+  //   Image: image15,
+  //   name: "OLA’S snacks",
+  //   href: "/ola",
+  //   location: "Back Of College",
+  // },
   {
     Image: image16,
     name: "TK fruit Arena",
@@ -149,12 +166,12 @@ const Vendors = [
     href: "/Hallelujah_ventures",
     location: "Back Of College",
   },
-  {
-    Image:
-      "https://www.recipetineats.com/tachyon/2019/11/Lo-Mein_5.jpg?resize=500%2C375",
-    name: "Steph catering",
-    href: "/Steph_catering ",
-    location: "Back Of College",
-  },
+  // {
+  //   Image:
+  //     "https://www.recipetineats.com/tachyon/2019/11/Lo-Mein_5.jpg?resize=500%2C375",
+  //   name: "Steph catering",
+  //   href: "/Steph_catering ",
+  //   location: "Back Of College",
+  // },
 ];
 export default Vendors;

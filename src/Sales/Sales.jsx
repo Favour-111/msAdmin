@@ -102,13 +102,19 @@ const Sales = () => {
     Number,
     Address,
     cartItems,
+    Note,
     WhatsApp
   ) => {
     let itemsMessage = cartItems
-      .map((item, index) => `${item.productName} - Qty: ${item.quantity}`)
+      .map(
+        (item, index) =>
+          `${item.productName} - ${item.quantity}- ${item.FoodPrice}`
+      )
       .join("\n");
     let message = `
     *${vendor.toUpperCase()}* 
+      _______________________
+  DELIVERY TYPE: ${Address === "" ? "Pick up At Store" : "Home delivery"}
   _______________________
   NAME: ${name}
   _______________________
@@ -124,6 +130,9 @@ const Sales = () => {
   _______________________
   *ORDERS:*
    ${itemsMessage}
+   _______________________
+  *NOTE:*
+   ${Note}
    _______________________
   *TOTAL: ${totalPrice}* 
  
@@ -417,7 +426,8 @@ const Sales = () => {
                               item.phoneNumber,
                               item.Address,
                               item.cartItems,
-                              item.WhatsApp
+                              item.WhatsApp,
+                              item.Note
                             )
                           }
                           className="action-icon"
